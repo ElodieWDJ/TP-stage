@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+//import { LoginComponent} from '@angular/core';
 
 
 @Component({
@@ -8,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Connexion';
+
+ 
 }

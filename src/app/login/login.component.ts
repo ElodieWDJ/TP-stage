@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms'
+import { Component, OnInit, Input } from '@angular/core';
+import { AuthentificationService } from '../authentification.service';
+
+import { FormBuilder, FormGroup } from '@angular/forms'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,17 +11,36 @@ import {FormBuilder, FormGroup} from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  //private user = users[];
+  users: any[];
+  @Input() indexOfUser: number;
 
-  constructor(private fb: FormBuilder) { }
+
+
+  constructor(private fb: FormBuilder,
+    private authentificationService: AuthentificationService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.loginForm = this.fb.group ({ //Crée une instance de FormGroup
-      email: [],                    //Crée une instance de FormControl
-      password: [],                //Crée une instance de FormControl
-    });
+    this.users = this.authentificationService.users;
   }
-login(){
-  console.log('Données du formulaire...', this.loginForm.value);
+
+  login(mail: string, password: string) {
+    if (mail == "")
+      alert("Vous n'avez pas renseigné votre email!");
+    else if (password == "")
+      alert("Vous n'avez pas renseigné votre mot de passe!")
+    else {
+      let authOk = this.authentificationService.onAuth(mail, password)
+      if (authOk==true)
+        this.router.navigate(["/home"]);
+      else 
+       alert('erreur authentification');
+    }
+  }
+
+
+
 }
-}
-  
+
