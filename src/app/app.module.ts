@@ -1,14 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
-import { AuthentificationService} from './authentification.service'
 import { RouterModule,Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { AuthentificationService} from './authentification.service'
 
 const AppRoute: Routes =[
   { path:'login', component:LoginComponent}, 
@@ -24,7 +22,6 @@ const AppRoute: Routes =[
   ],
   imports: [
     BrowserModule,
-    //AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(AppRoute),

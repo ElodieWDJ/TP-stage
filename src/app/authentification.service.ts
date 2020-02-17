@@ -7,9 +7,7 @@
 
 
 export class AuthentificationService {
-//  mail:any[];
-//  password:any[];
-  
+
    users = [
     {
     mail: 'jean.jean@jean.fr',
@@ -25,13 +23,6 @@ export class AuthentificationService {
 
    constructor() { }
 
-  //  onAuth(mail,password){
-  //     if (mail=="a")
-  //     else if (password=="b")
-  //     else 
-  //     return ['/home'];
-  //  }
-
    onAuth(mail_value:string,password_value:string):boolean{
     for(let user of this.users){
       console.log(user.mail);
@@ -41,18 +32,6 @@ export class AuthentificationService {
     return false;
     
     
-    
-    /*
-      if (mail_value=="jean.jean@jean.fr")
-        return true;
-      else if (password_value=="jean")
-        return true;
-      else 
-        return false;
-        //this.users[index].status = 'connecté';
-    */
     }
-
-
 
 }

@@ -11,11 +11,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  //private user = users[];
   users: any[];
-  @Input() indexOfUser: number;
-
-
+ 
 
   constructor(private fb: FormBuilder,
     private authentificationService: AuthentificationService,
