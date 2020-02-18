@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  users: any[];
+  //users: any[];
  
 
   constructor(private fb: FormBuilder,
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.users = this.authentificationService.users;
+    //this.users = this.authentificationService.users;
   }
 
   login(mail: string, password: string) {

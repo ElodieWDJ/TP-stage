@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RouterModule,Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -25,7 +26,7 @@ const AppRoute: Routes =[
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(AppRoute),
-    
+    HttpClientModule 
   ],
   providers: [
     AuthentificationService
