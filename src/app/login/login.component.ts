@@ -10,17 +10,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
   loginForm: FormGroup;
-  //users: any[];
- 
+
+
 
   constructor(private fb: FormBuilder,
     private authentificationService: AuthentificationService,
     private router: Router
   ) { }
 
-  ngOnInit() {
-    //this.users = this.authentificationService.users;
+  ngOnInit() { }
+
+
+  win() {
+    this.router.navigate(["/home"]);
+  }
+
+  lose() {
+    alert('erreur authentification');
+  }
+
+  gerewin(b: boolean) {
+    if (b) {
+      this.win();
+    } else {
+      this.lose();
+    }
   }
 
   login(mail: string, password: string) {
@@ -29,15 +45,8 @@ export class LoginComponent implements OnInit {
     else if (password == "")
       alert("Vous n'avez pas renseigné votre mot de passe!")
     else {
-      let authOk = this.authentificationService.onAuth(mail, password)
-      if (authOk==true)
-        this.router.navigate(["/home"]);
-      else 
-       alert('erreur authentification');
+      let authOk = this.authentificationService.onAuth(mail, password).then(b => this.gerewin(b), this.lose);
     }
   }
-
-
-
 }
 
