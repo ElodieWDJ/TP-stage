@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AuthentificationService } from '../authentification.service';
 
 import { FormBuilder, FormGroup } from '@angular/forms'
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     else if (password == "")
       alert("Vous n'avez pas renseigné votre mot de passe!")
     else {
-      let authOk = this.authentificationService.onAuth(mail, password).then(b => this.gerewin(b), this.lose);
+    this.authentificationService.onAuth(mail, password).then(b => this.gerewin(b), this.lose);
     }
   }
 }

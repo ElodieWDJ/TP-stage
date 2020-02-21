@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { LoginComponent } from './login/login.component';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
-
-
 
 export class AuthentificationService {
 
@@ -22,9 +20,9 @@ export class AuthentificationService {
       /* Simulating some async stuff... */
       this.http.get<any>('http://localhost:8080?user=' + mail_value + '&password=' + password_value).subscribe(
         data => {
-          data.user
-
           this.username = data.user;
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('username',data.user);
           resolve(true);
         },
 
