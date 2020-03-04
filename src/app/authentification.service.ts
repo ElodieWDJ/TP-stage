@@ -14,11 +14,11 @@ export class AuthentificationService {
 
   username = ""
 
-  onAuth(mail_value: string, password_value: string) {
-    return new Promise<boolean>((resolve, reject) => {
+  onAuth(mail_value: string, password_value: string) : Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {//promesse
 
-      /* Simulating some async stuff... */
-      this.http.get<any>('http://localhost:8080?user=' + mail_value + '&password=' + password_value).subscribe(
+
+      this.http.get<any>('http://localhost:8080/login?user=' + mail_value + '&password=' + password_value).subscribe(
         data => {
           this.username = data.user;
           localStorage.setItem('token', data.token);
