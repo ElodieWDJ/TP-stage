@@ -14,25 +14,16 @@ export class AuthentificationService {
 
   username = ""
 
-  onAuth(mail_value: string, password_value: string) : Promise<boolean> {
-    return new Promise<boolean>((resolve, reject) => {//promesse
+  onAuth(mail_value: string, password_value: string)  {
+    
+     let myDatas = "{\"login\" : \""+ mail_value+"\" ,\"password\" : \""+password_value+"\"}";
+     console.log(myDatas);
 
-
-      this.http.get<any>('http://localhost:8080/login?user=' + mail_value + '&password=' + password_value).subscribe(
-        data => {
-          this.username = data.user;
-          localStorage.setItem('token', data.token);
-          localStorage.setItem('username',data.user);
-          resolve(true);
-        },
-
-        response => {
-          if (response.status == 200) {
-            resolve(true);
-          }
-            resolve(false);
-        }
-      )
-    });
-  }
+        this.http.post('http://server.ppa.local.com/login', myDatas).subscribe(res => {
+            console.log(res)
+        });
+    
+      
+  
+}
 }
