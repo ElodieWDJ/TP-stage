@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
       alert("Vous n'avez pas renseigné votre mot de passe!")
     else {
     this.authentificationService.onAuth(mail, password);
+    this.router.navigate(["/home"]);
     }
   }
 }
