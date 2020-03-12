@@ -7,7 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { AuthentificationService} from './authentification.service'
+import { AuthentificationService} from './authentification.service';
+import { RegisterComponent } from './register/register.component'
 
 const AppRoute: Routes =[
   { path:'login', component:LoginComponent}, 
@@ -19,7 +20,8 @@ const AppRoute: Routes =[
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
